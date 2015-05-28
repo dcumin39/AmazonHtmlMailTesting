@@ -22,13 +22,98 @@ namespace AmazonHtmlMailTesting
             InitializeComponent();
         }
 
+        public static readonly List<string> InvalidOutLookCss = new List<string> {
+            "background-attachment:", 
+            "background-image:",
+            "background-position:",
+        "background-repeat:",
+        "clear:",
+        "display:",
+        "float:",
+        "list-style-image:",
+        "list-style-position:",
+        "text-transform:",
+        "word-spacing:",
+        "azimuth:",
+        "background-attachment:",
+        "background-image:",
+        "background-position:",
+        "background-repeat:",
+        "border-spacing:",
+        "bottom:",
+        "caption-side:",
+        "clear^:",
+        "clip:",
+        "content:",
+        "counter-increment:",
+        "counter-reset:",
+        "cue-before, cue-after, cue:",
+        "cursor:",
+        "display:",
+        "elevation:",
+        "empty-cells:",
+        "float:",
+        "font-size-adjust:",
+        "font-stretch:",
+        "left:",
+        "line-break:",
+        "list-style-image:",
+        "list-style-position:",
+        "marker-offset:",
+        "max-height:",
+        "max-width:",
+        "min-height:",
+        "min-width:",
+        "orphans:",
+        "outline:",
+        "outline-color:",
+        "outline-style:",
+        "outline-width:",
+        "overflow:",
+        "overflow-x:",
+        "overflow-y:",
+        "pause-before, pause-after, pause:",
+        "pitch:",
+        "pitch-range:",
+        "play-during:",
+        "position:",
+        "quotes:",
+        "richness:",
+        "right:",
+        "speak:",
+        "speak-header:",
+        "speak-numeral:",
+        "speak-punctuation:",
+        "speech-rate:",
+        "stress:",
+        "table-layout:",
+        "text-shadow:",
+        "text-transform:",
+        "top:",
+        "unicode-bidi:",
+        "visibility:",
+        "voice-family:",
+        "volume:",
+        "widows:",
+        "word-spacing:",
+        "z-index:"
+        };
+
         private void ButtonSend_Click(object sender, EventArgs e)
         {
             var FromSender = ConfigurationSettings.AppSettings["FromSender"];
             var To = TextBoxEmailAddresses.Text;
 
              var Subject = TextBoxSubject.Text;
-            var Body =  PreMailer.Net.PreMailer.MoveCssInline(TextBoxHtml.Text).Html;
+
+            var text = TextBoxHtml.Text;
+            if (checkBoxValidateOutlook2007.Checked)
+            {
+                if (TestForValidOutLook2007(text)) return;
+            }
+
+            var Body =  PreMailer.Net.PreMailer.MoveCssInline(text).Html;
+
             // Construct an object to contain the recipient address.
             Destination destination = new Destination();
             destination.ToAddresses = (new List<string>() { To });
@@ -79,6 +164,26 @@ namespace AmazonHtmlMailTesting
             
         }
 
-      
+        private bool TestForValidOutLook2007(string text)
+        {
+            var listofInvalidCSS = InvalidOutLookCss.Where(p => text.Contains(p));
+            if (listofInvalidCSS.Any())
+            {
+                string alertMessage = "You have the following invalid css elements " +
+                                      string.Join(",", listofInvalidCSS.ToArray());
+                ;
+                string caption = "Error Detected in Input";
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result;
+                result = MessageBox.Show(alertMessage, caption, buttons);
+
+                if (result == DialogResult.Cancel)
+                {
+                    toolStripStatusLabel1.Text = "Canceled sending Email";
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

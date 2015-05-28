@@ -37,9 +37,19 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.TextBoxHtml = new System.Windows.Forms.RichTextBox();
+            this.checkBoxValidateOutlook2007 = new System.Windows.Forms.CheckBox();
             label2 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(12, 41);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(28, 13);
+            label2.TabIndex = 4;
+            label2.Text = "Html";
             // 
             // ButtonSend
             // 
@@ -67,15 +77,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Email";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(12, 41);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(28, 13);
-            label2.TabIndex = 4;
-            label2.Text = "Html";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -96,7 +97,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 381);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 417);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1004, 22);
             this.statusStrip1.TabIndex = 7;
@@ -105,22 +106,35 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
             // TextBoxHtml
             // 
+            this.TextBoxHtml.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.TextBoxHtml.Location = new System.Drawing.Point(15, 57);
             this.TextBoxHtml.Name = "TextBoxHtml";
             this.TextBoxHtml.Size = new System.Drawing.Size(977, 296);
             this.TextBoxHtml.TabIndex = 8;
             this.TextBoxHtml.Text = "";
             // 
+            // checkBoxValidateOutlook2007
+            // 
+            this.checkBoxValidateOutlook2007.AutoSize = true;
+            this.checkBoxValidateOutlook2007.Checked = true;
+            this.checkBoxValidateOutlook2007.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxValidateOutlook2007.Location = new System.Drawing.Point(734, 374);
+            this.checkBoxValidateOutlook2007.Name = "checkBoxValidateOutlook2007";
+            this.checkBoxValidateOutlook2007.Size = new System.Drawing.Size(149, 17);
+            this.checkBoxValidateOutlook2007.TabIndex = 9;
+            this.checkBoxValidateOutlook2007.Text = "Validate For Outlook 2007";
+            this.checkBoxValidateOutlook2007.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 403);
+            this.ClientSize = new System.Drawing.Size(1004, 439);
+            this.Controls.Add(this.checkBoxValidateOutlook2007);
             this.Controls.Add(this.TextBoxHtml);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label3);
@@ -148,6 +162,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.RichTextBox TextBoxHtml;
+        private System.Windows.Forms.CheckBox checkBoxValidateOutlook2007;
     }
 }
 
