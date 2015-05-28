@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
@@ -105,18 +104,6 @@ namespace AmazonHtmlMailTesting
         "word-spacing:",
         "z-index:"
         };
-
-        public class EmailParamsFromForm
-        {
-            public string FromSender { get; set; }
-
-            public string To { get; set; }
-
-            public string Subject { get; set; }
-
-            public string Body { get; set; }
-
-        }
 
 
         private void ButtonSend_Click(object sender, EventArgs e)
@@ -278,14 +265,6 @@ namespace AmazonHtmlMailTesting
                 e.Graphics.DrawRectangle(Pens.DarkGray, rect);
                 e.DrawFocusRectangle();
             }
-        }
-    }
-    public static class ActionExtensions
-    {
-        public static async void DelayFor(this Action act, TimeSpan delay)
-        {
-            await Task.Delay(delay);
-            act();
         }
     }
 }

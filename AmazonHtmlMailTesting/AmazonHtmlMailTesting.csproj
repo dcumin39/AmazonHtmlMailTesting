@@ -53,12 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionExtensions.cs" />
     <Compile Include="AmazonHtmlTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AmazonHtmlTestForm.Designer.cs">
       <DependentUpon>AmazonHtmlTestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmailParamsFromForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AmazonHtmlTestForm.resx">
